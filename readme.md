@@ -1,4 +1,3 @@
-
 # 🤖 Coin Manager (Discord Bot)
 
 A discord bot built with discord.js which will manage your member's coins !
@@ -18,6 +17,8 @@ A discord bot built with discord.js which will manage your member's coins !
 - /addcoins
 - /mycoins
 - /showhistory
+- /introduce
+- /findintroduction
 - !introduce (in development)
 
 ## 🚀 Getting Started
@@ -72,7 +73,7 @@ And your bot is ready to go !
 
 ### - `/help` Shows all commands of the bot 
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1006845499741044796/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1009455819571597403/unknown.png)
 
 ### - `/ping` Displays API Latency
 
@@ -165,4 +166,3 @@ The bot will ask a series of questions to the user and after the user answers al
 ![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1006850359215525909/unknown.png)
 
 #### Note: This command can be used but it is still in development.
-

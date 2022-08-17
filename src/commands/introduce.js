@@ -12,14 +12,13 @@ module.exports = {
     
     async execute(interaction) {
 
-        const user = findUserInfo(interaction.user.id);
-
+        user = await findUserInfo(interaction.user.id);
         const name = interaction.options.get('name').value;
         const email = interaction.options.get('email').value;
         const introduction = interaction.options.get('introduction').value;
         const date = getDateAndTime();
         if(user !== null){
-            updateIntroData(interaction.user.id,name,email,introduction,date)
+           await updateIntroData(interaction.user.id,name,email,introduction,date)
         }else{
             const person = new introductionObject({
                 name: name,
