@@ -16,6 +16,7 @@ A discord bot built with discord.js which will manage your member's coins !
 - /createwallet
 - /addcoins
 - /mycoins
+- /sendcoins
 - /showhistory
 - /introduce
 - /findintroduction
