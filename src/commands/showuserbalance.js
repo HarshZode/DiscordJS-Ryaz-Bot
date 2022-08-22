@@ -9,6 +9,11 @@ module.exports = {
     .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
 
 	async execute(interaction) {
+        if (interaction.user.id != PermissionToAddCoins) {
+            const description = `You don't have permission to use this command`
+            const message = embedCommand(interaction,'Show User History Command', null, description);
+            return interaction.reply({ embeds: [message], ephemeral: true });
+        }else{
         userId = interaction.user.id;
         member = interaction.guild.members.cache.get(userId)
         if (member.roles.cache.has(commonRole)) {
@@ -25,6 +30,6 @@ module.exports = {
             }
         }else{
             return responseCommand( interaction, null, null, "You don't have permission to use this command", true)
-        }
+        }}
 	},
 };
