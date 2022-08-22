@@ -15,9 +15,10 @@ module.exports = {
             SentInfo = user.sentLogs;
             RecieveInfo = user.recieveLogs;
             AddInfo = user.addcoinsLogs;
+            UseInfo = user.usedcoinsLogs;
+            UnusedInfo = user.unusedcoinsLogs;
             function showThis(arr) {
                 len = arr.length;
-                console.log(len)
                 if (len === 0) {
                     let char = 'none';
                     return char;
@@ -63,7 +64,34 @@ module.exports = {
                 const recieved = embedCommand(interaction, recieveTitle, null, recieveDesc);
                 EmbedARRAY.push(recieved)
             }
+            if (UseInfo.length <= 0) {
+    
+                const recieveTitle = 'Coins Used History !';
+                const recieveDesc = `${user.name}\nNo coins used`;
 
+                const recieved = embedCommand(interaction, recieveTitle, null, recieveDesc);
+                EmbedARRAY.push(recieved);
+            }
+            else {
+                const recieveTitle = 'Coins Used History !'
+                const recieveDesc = `${user.name}\n${UseInfo.map(showThis).join('\n')}`
+                const recieved = embedCommand(interaction, recieveTitle, null, recieveDesc);
+                EmbedARRAY.push(recieved)
+            }
+            if (UnusedInfo.length <= 0) {
+    
+                const recieveTitle = 'Unused coins Removed ';
+                const recieveDesc = `${user.name}\nNo coins removed`;
+
+                const recieved = embedCommand(interaction, recieveTitle, null, recieveDesc);
+                EmbedARRAY.push(recieved);
+            }
+            else {
+                const recieveTitle = 'Unused coins Removed !'
+                const recieveDesc = `${user.name}\n${UnusedInfo.map(showThis).join('\n')}`
+                const recieved = embedCommand(interaction, recieveTitle, null, recieveDesc);
+                EmbedARRAY.push(recieved)
+            }
             return interaction.reply({ embeds: EmbedARRAY, ephemeral: true });
 
 

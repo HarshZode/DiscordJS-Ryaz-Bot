@@ -34,7 +34,6 @@ module.exports = {
                 role = interaction.options.get('role').value;
             }
             if (interaction.options.get('user') !== null) {
-                console.log(interaction.options.get('user'))
                 user = interaction.options.get('user').value;
             }
             if (user !== null && role !== null){

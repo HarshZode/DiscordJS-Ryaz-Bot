@@ -1,6 +1,6 @@
-# 🤖 Coin Manager (Discord Bot)
+# 🤖 Ryaz Discord Bot
 
-A discord bot built with discord.js which will manage your member's coins !
+A discord bot built with discord.js which will manage your member's coins and save all the logs!
 
 
 
@@ -11,13 +11,18 @@ A discord bot built with discord.js which will manage your member's coins !
 ## Commands
 
 - /help
+- /documentation
 - /ping
 - /server
 - /createwallet
 - /addcoins
 - /mycoins
 - /sendcoins
+- /removeunusablecoins
+- /removeusablecoins
 - /showhistory
+- /showuserhistory
+- /showuserbalance
 - /introduce
 - /findintroduction
 - !introduce (in development)
@@ -74,7 +79,11 @@ And your bot is ready to go !
 
 ### - `/help` Shows all commands of the bot 
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1009455819571597403/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/838637875636600865/1011238641584062484/unknown.png)
+
+### - `/documentation` Sends a link to the documentation of the bot 
+
+![App Screenshot](https://cdn.discordapp.com/attachments/838637875636600865/1011239599915401247/unknown.png)
 
 ### - `/ping` Displays API Latency
 
@@ -128,6 +137,22 @@ Send your coins to other user.
 
 #### Note: It will also mention the user who has the permission to add coins for keeping the track of the coin transfer done between the users.
 
+### - `/removeunusablecoins`
+
+This command will remove unusablecoins from the user's wallet
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011242416705118208/unknown.png)
+
+#### Note: Only user who as permission to add coins can use this command
+
+### - `/removeusablecoins`
+
+This command will remove usablecoins from the user's wallet
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011242743978270730/unknown.png)
+
+#### Note: Only user who as permission to add coins can use this command
+
 ### - `/showhistory`
 
 This command will show you all the coin transfers done till now.
@@ -135,6 +160,24 @@ This command will show you all the coin transfers done till now.
 ![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1006825080975798352/unknown.png)
 
 ![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1006825152434159716/unknown.png)
+
+### - `/showuserbalance`
+
+This command will show you user's available coins
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011241168174063696/unknown.png)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011240703902371840/unknown.png)
+
+#### Note: Only user who as permission to add coins can use this command
+
+### - `/showuserhistory`
+
+This command will show you user's coin transfer history
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011241577370353745/unknown.png)
+
+#### Note: Only user who as permission to add coins can use this command
 
 ### - `/introduce`
 

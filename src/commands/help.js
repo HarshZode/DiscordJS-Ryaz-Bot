@@ -15,6 +15,11 @@ module.exports = {
             { name: '/mycoins', value: `Shows Available Coins`, inline: true },
             { name: '/sendcoins', value: `Transfer your coins to other user`, inline: true },
             { name: '/showhistory', value: `Shows all coin transfer history`, inline: true },
+            { name: '/showuserhistory', value: `Shows all coin transfer history of the user`, inline: true },
+            { name: '/showuserbalance', value: `Shows available coins of the user`, inline: true },
+            { name: '/removeusablecoins', value: `Removes usable coins`, inline: true },
+            { name: '/removeunusablecoins', value: `Removes unusable coins`, inline: true },
+            { name: '/documentation', value: `Shows all coin transfer history`, inline: true },
             { name: '/introduce', value: `Registers user's introduction`, inline: true },
             { name: '/findintroduction', value: `Gives user's introduction`, inline: true }]
             const description = `Server name: ${interaction.guild.name}\n`

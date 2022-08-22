@@ -26,15 +26,18 @@ module.exports = {
                     const employee = new EmployeeData({
                         name: interaction.user.username,
                         recieveCoins: true,
-                        coins: 0,
+                        unusablecoins:0,
+                        usablecoins: 0,
                         discordid: interaction.user.id,
                         sentLogs: [],
                         recieveLogs: [],
                         addcoinsLogs: [],
+                        usedcoinsLogs: [],
+                        unusedcoinsLogs:[],
                     })
                     employee.save();
                     const description = `Created new wallet !`
-                    const fields = [{ name: `Name: ${employee.name}`, value: `Available Coins: ${employee.coins}`, inline: true }]
+                    const fields = [{ name: `Unusable Coins`, value: `${employee.unusablecoins}`, inline: true },{ name: `Usable Coins`, value: `${employee.usablecoins}`, inline: true }]
                    
                     const message = embedCommand(interaction,'Create wallet command', fields, description);
                     return interaction.reply({ embeds: [message], ephemeral: true });

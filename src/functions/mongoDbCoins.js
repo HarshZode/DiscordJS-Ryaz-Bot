@@ -15,11 +15,14 @@ const  connectToDb = () =>{
 const employeeSchema = new mongoose.Schema({
     name : String,
     recieveCoins: Boolean,
-    coins: Number,
+    unusablecoins: Number,
+    usablecoins: Number,
     discordid: Number,
     sentLogs : Array,
     recieveLogs : Array,
-    addcoinsLogs : Array
+    addcoinsLogs : Array,
+    usedcoinsLogs: Array,
+    unusedcoinsLogs: Array,
 })
 // new collection below
 const EmployeeData = new mongoose.model("CoinLogs",employeeSchema)
@@ -45,20 +48,28 @@ async function findUser(id){
     return model
 }
 
+async function removeUsableCoins(id,amount,reason){
+    const query = { discordid: id };
+    const time = getDateAndTime()
+    const elementToPush = `Removed: ${amount} coins on ${time}. Reason : ${reason}`;
+    await EmployeeData.findOneAndUpdate(query,{$inc:{usablecoins:-amount}});
+    await EmployeeData.findOneAndUpdate(query, {$push: { usedcoinsLogs: elementToPush }});
+}
+
+async function removeUnusableCoins(id,amount,reason){
+    const query = { discordid: id };
+    const time = getDateAndTime()
+    const elementToPush = `Removed: ${amount} coins on ${time}. Reason : ${reason}`;
+    await EmployeeData.findOneAndUpdate(query,{$inc:{unusablecoins:-amount}});
+    await EmployeeData.findOneAndUpdate(query, {$push: { unusedcoinsLogs: elementToPush }});
+}
 
 
 async function addCoins(id,amount){
     const query = { discordid: id };
-    const model = await EmployeeData.findOne(query);
-    const coinsToAdd = amount;
-    if (model.coins === 0){
-        newCoins = coinsToAdd;
-    }else{
-        newCoins = model.coins+coinsToAdd;
-    }
-    const time = getDateAndTime()
-    const elementToPush = `Added: ${newCoins} coins on ${time}`;
-    await EmployeeData.findOneAndUpdate(query,{$set:{coins:`${newCoins}`}});
+    const time = getDateAndTime();
+    await EmployeeData.findOneAndUpdate(query,{$inc:{unusablecoins: amount}});
+    const elementToPush = `Added: ${amount} coins on ${time}`;
     await EmployeeData.findOneAndUpdate(query, {$push: { addcoinsLogs: elementToPush }});
     
 }
@@ -67,7 +78,7 @@ async function addCoinsToAll(amount){
  const time = getDateAndTime()
  const query =  { recieveCoins: true};
  const elementToPush = `Added: ${amount} coins on ${time}`;
- await EmployeeData.updateMany(query,{$inc: { coins: amount}});
+ await EmployeeData.updateMany(query,{$inc: { unusablecoins: amount}});
  await EmployeeData.updateMany(query, {$push: { addcoinsLogs: elementToPush }});
  sentTo = await EmployeeData.find(query);
  return sentTo;
@@ -83,10 +94,10 @@ async function getCoins(id){
 async function transferCoins(senderid,recieverid,amount,senderName,recieverName,reason){
     const time = getDateAndTime()
     const sent = `Transfered: ${amount} coins on ${time} to ${recieverName}. Reason : ${reason}`;
-    await EmployeeData.findOneAndUpdate({discordid:senderid},{$inc: { coins: -amount}});
+    await EmployeeData.findOneAndUpdate({discordid:senderid},{$inc: { unusablecoins: -amount}});
     await EmployeeData.findOneAndUpdate({discordid:senderid}, {$push: { sentLogs: sent }});
     const recieve = `Got ${amount} coins on ${time} from ${senderName}. Reason: ${reason}`;
-    await EmployeeData.findOneAndUpdate({discordid:recieverid},{$inc: { coins: amount}});
+    await EmployeeData.findOneAndUpdate({discordid:recieverid},{$inc:{usablecoins: amount}});
     await EmployeeData.findOneAndUpdate({discordid:recieverid}, {$push: { recieveLogs: recieve }});
 }
 
@@ -100,4 +111,6 @@ module.exports = {
     getCoins: getCoins,
     transferCoins :transferCoins,
     getDateAndTime: getDateAndTime,
+    removeUsableCoins: removeUsableCoins,
+    removeUnusableCoins:removeUnusableCoins,
 };
