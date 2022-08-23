@@ -17,8 +17,8 @@ module.exports = {
             { name: '/showhistory', value: `Shows all coin transfer history`, inline: true },
             { name: '/showuserhistory', value: `Shows all coin transfer history of the user`, inline: true },
             { name: '/showuserbalance', value: `Shows available coins of the user`, inline: true },
-            { name: '/removespendable', value: `Removes usable coins`, inline: true },
-            { name: '/removenonspendable', value: `Removes unusable coins`, inline: true },
+            { name: '/removespendablecoins', value: `Removes spendable coins`, inline: true },
+            { name: '/removenonspendablecoins', value: `Removes non-spendable coins`, inline: true },
             { name: '/documentation', value: `Shows all coin transfer history`, inline: true },
             { name: '/introduce', value: `Registers user's introduction`, inline: true },
             { name: '/findintroduction', value: `Gives user's introduction`, inline: true }]
