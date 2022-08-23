@@ -18,8 +18,8 @@ A discord bot built with discord.js which will manage your member's coins and sa
 - /addcoins
 - /mycoins
 - /sendcoins
-- /removeunusablecoins
-- /removeusablecoins
+- /removenonspendablecoins
+- /removespendablecoins
 - /showhistory
 - /showuserhistory
 - /showuserbalance
@@ -92,7 +92,7 @@ And your bot is ready to go !
 ### - `/createwallet` Creates the wallet for the user
 Note: The user must have the same role which was added to `.env` file
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1006818379878912020/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011508881006018620/unknown.png)
 
 ### - `/addcoins` 
 #### Note: This command can be used by the user who's `Discord Id` is filled in place of `USER_ID_WHO_CAN_ADD_COINS` in `.env` file
@@ -137,19 +137,23 @@ Send your coins to other user.
 
 #### Note: It will also mention the user who has the permission to add coins for keeping the track of the coin transfer done between the users.
 
-### - `/removeunusablecoins`
+### - `/removenonspendablecoins`
 
 This command will remove unusablecoins from the user's wallet
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011242416705118208/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011514344401547346/unknown.png)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011514284032917504/unknown.png)
 
 #### Note: Only user who as permission to add coins can use this command
 
-### - `/removeusablecoins`
+### - `/removespendablecoins`
 
 This command will remove usablecoins from the user's wallet
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011242743978270730/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011517789288280084/unknown.png)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011517374601641995/unknown.png)
 
 #### Note: Only user who as permission to add coins can use this command
 
