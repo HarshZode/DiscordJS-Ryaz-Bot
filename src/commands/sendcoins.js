@@ -40,19 +40,19 @@ module.exports = {
             sender = await findUser(myId);
             reciever = await findUser(userId);
             if (sender !== null && reciever !== null) {
-                if (sender.unusablecoins < amountToTransfer) {
+                if (sender.nonspendable < amountToTransfer) {
                     const title = "You don't have enough coins"
                     return responseCommand( interaction, title, null, null, true);
                 }
                 else {
                     transferCoins(myId, userId, amountToTransfer, sender.name, reciever.name, reason)
                     if (amountToTransfer == 1) {
-                        const description = `<@${myId}> ` + `transfered **${amountToTransfer} coin** to ` + `<@${userId}>\n**Reason** : ${reason}`
+                        const description = `<@${myId}> ` + `transfered 💰 **${amountToTransfer} coin** to ` + `<@${userId}>\n**Reason** : ${reason}`
                         responseCommand( interaction, 'Coin Transfered !', null, description, false)
                         return interaction.channel.send(`<@${PermissionToAddCoins}>`);
                     } else {
                         const title = 'Coins Transfered !'
-                        const description = `<@${myId}> ` + `transfered **${amountToTransfer} coins** to ` + `<@${userId}>\n**Reason** : ${reason}`
+                        const description = `<@${myId}> ` + `transfered 💰 **${amountToTransfer} coins** to ` + `<@${userId}>\n**Reason** : ${reason}`
                         responseCommand( interaction, title, null, description, false)
                         return interaction.channel.send(`<@${PermissionToAddCoins}>`);
                     }

@@ -15,8 +15,8 @@ module.exports = {
         theUser = await findUser(id);
             if(theUser !== null){
             const title = 'My coins'
-            const fields = [{ name: `Unusable Coins:`, value: ` ${theUser.unusablecoins}`, inline: true },
-            { name: `Usable Coins:`, value: ` ${theUser.usablecoins}`, inline: true }
+            const fields = [{ name: `💰 Non-spendable Coins:`, value: ` ${theUser.nonspendable}`, inline: true },
+            { name: `✨ Spendable Coins:`, value: ` ${theUser.spendable}`, inline: true }
              ]
             return responseCommand(interaction, title, fields, null, true);
             }else{

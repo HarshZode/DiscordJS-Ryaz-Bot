@@ -1,4 +1,4 @@
-const { findUser,removeUsableCoins } = require('../functions/mongoDbCoins');
+const { findUser,removespendable } = require('../functions/mongoDbCoins');
 const { SlashCommandBuilder } = require('discord.js');
 const { embedCommand, responseCommand } = require('../functions/embed');
 
@@ -6,7 +6,7 @@ const PermissionToAddCoins = process.env.USER_ID_WHO_CAN_ADD_COINS;
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('removeusablecoins')
+        .setName('removespendable')
         .setDescription('removes coins to user')
         .addIntegerOption(option => option.setName('amount').setDescription('Enter an integer').setRequired(true))
         .addUserOption(option => option.setName('user').setDescription('Enter a user').setRequired(true))
@@ -30,12 +30,12 @@ module.exports = {
             const userid = interaction.options.get('user').value;
             const user = await findUser(userid);
             if (user !== null) {
-                if (user.unusablecoins < amount) {
+                if (user.nonspendable < amount) {
                     const title = "User don't have enough coins"
                     return responseCommand(interaction, title, null, null, true);
                 } else {
                     if (user !== null) {
-                        await removeUsableCoins(userid, amount,reason);
+                        await removespendable(userid, amount,reason);
                         const description = `Removed ${amount} to ${user.name}`
                         const message = embedCommand(interaction, 'Remove Usable Coins Command', null, description);
                         return interaction.reply({ embeds: [message], ephemeral: true });
