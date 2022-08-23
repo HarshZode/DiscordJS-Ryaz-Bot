@@ -123,7 +123,7 @@ Add the amount of coins you want to add and select the role in role option.
 
 Shows available coins of the user
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1006845808680894535/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011519130408587345/unknown.png)
 
 
 
