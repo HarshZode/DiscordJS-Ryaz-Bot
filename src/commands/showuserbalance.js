@@ -3,6 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const { responseCommand, embedCommand } = require('../functions/embed');
 
 const commonRole = process.env.COMMON_ROLE_ID;
+const PermissionToAddCoins = process.env.USER_ID_WHO_CAN_ADD_COINS;
 
 module.exports = {
 	data: new SlashCommandBuilder().setName('showuserbalance').setDescription(`Shows user's available coins`)

@@ -24,27 +24,28 @@ module.exports = {
             amount = interaction.options.get('amount').value;
             if (amount <= 0) {
                 const description = `Amount must be positive`
-                const message = embedCommand(interaction, 'Add Coins Command', null, description);
+                const message = embedCommand(interaction, 'Remove Spendable Coins', null, description);
                 return interaction.reply({ embeds: [message], ephemeral: true });
             }
             const userid = interaction.options.get('user').value;
             const user = await findUser(userid);
             if (user !== null) {
-                if (user.nonspendable < amount) {
+                if (user.spendable < amount) {
                     const title = "User don't have enough coins"
                     return responseCommand(interaction, title, null, null, true);
                 } else {
                     if (user !== null) {
                         await removespendable(userid, amount,reason);
-                        const description = `Removed ${amount} to ${user.name}`
-                        const message = embedCommand(interaction, 'Remove Usable Coins Command', null, description);
+                        const description = `Removed ✨ ${amount} spendable coins from ${user.name}`
+                        const fields = [{name: `Reason:`, value: `${reason}` , inline: true}]
+                        const message = embedCommand(interaction, 'Remove Spendable Coins Command', fields, description);
                         return interaction.reply({ embeds: [message], ephemeral: true });
                     }
                 }
 
             } else {
                 const description = `User Doesn't have a wallet.`
-                const message = embedCommand(interaction, 'Remove Usable Coins Command', null, description);
+                const message = embedCommand(interaction, 'Remove Spendable Coins Command', null, description);
                 return interaction.reply({ embeds: [message], ephemeral: true });
             }
 
