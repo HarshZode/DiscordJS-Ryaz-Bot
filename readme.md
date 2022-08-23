@@ -79,7 +79,7 @@ And your bot is ready to go !
 
 ### - `/help` Shows all commands of the bot 
 
-![App Screenshot](https://cdn.discordapp.com/attachments/838637875636600865/1011238641584062484/unknown.png)
+![App Screenshot](https://cdn.discordapp.com/attachments/1006813112038608896/1011552615236112494/unknown.png)
 
 ### - `/documentation` Sends a link to the documentation of the bot 
 
