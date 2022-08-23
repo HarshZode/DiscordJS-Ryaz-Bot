@@ -16,7 +16,7 @@ module.exports = {
 
     if (isWelcomeMessage) {
         const Title = `Welcome ${msg.author.username}`
-        const description = `Please use /introduce to give your introduction`
+        const description = `Please use **/introduce** to give your introduction`
         const introductionEmbed = messageEmbedCommand(msg, Title, null, description);
         client.channels.cache.get(welcomeChannelId).send({ embeds: [introductionEmbed], ephemeral: true })
         client.channels.cache.get(welcomeChannelId).send(`<@${msg.author.id}>`);
