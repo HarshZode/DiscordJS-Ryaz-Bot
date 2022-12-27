@@ -8,6 +8,10 @@ A discord bot built with discord.js which will manage your member's coins and sa
 - Discord Bot Token [Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
 
 - Node.js v18.7.0 or newer
+
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
+
+
 ## Commands
 
 - /help
