@@ -10,7 +10,7 @@ A discord bot built with discord.js which will manage your member's coins and sa
 - Node.js v18.7.0 or newer
 
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
-
+ 
 
 ## Commands
 
